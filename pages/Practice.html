@@ -1,0 +1,267 @@
+<html>
+<!-- {{ time }} -->
+
+  <!-- {{ guess }}  <br/>
+  {{ result }} <br/>
+  {{ check }} -->
+<head>
+  <title>JS Practice</title>
+</head>
+<body>
+<p class="answer"></p>
+</body>
+
+
+</html>
+<script setup>
+
+//11
+/*
+//a
+const nums = [10, 20, 30]
+nums[2] = 99
+console.log(nums)
+
+//b
+const getLastValue = (arr) => {
+    const lastItem = arr.length - 1 
+    return arr[lastItem]
+}
+  console.log(getLastValue(nums))
+
+//c
+const arraySwap = (arr) => {
+  const newArr = new Array ([arr[arr.length - 1], arr[1], arr[0]])
+  return newArr
+}
+  console.log(arraySwap(nums))
+
+//d
+let doubledLoop
+for (let i=0 ; i<=5 ; i++){
+  doubledLoop = i*2 
+  console.log(doubledLoop)
+}
+
+//e
+for (let i=5 ; i>=0 ; i--){
+  console.log(i)
+}
+
+//f
+let d11 = 0
+while (d11 < 5){
+  d11++
+  const doubled = d11*2
+  console.log(doubled)
+}
+
+//g
+let e11 = 6
+while (e11 > 0){
+  e11--
+  console.log(e11)
+}
+
+//h
+const odd = [1,3,5,7,9]
+const addOne = (arr) => {
+  for (let i = 0 ; i<= arr.length-1 ; i++){
+  const even = arr[i] + 1
+  console.log(even)
+  }
+}
+  addOne(odd)
+
+
+//i
+const numArr = [2,4,6,8]
+const add = 2
+
+const addNum = (arr, num) => {
+  // for (let i of arr){
+  //   let combine  = i + num
+  //   console.log(combine) 
+  // }
+  const combineArr = new Array ([
+    (arr[0] + num), 
+    (arr[1] + num),
+    (arr[2] + num),
+    (arr[3] + num)
+  ])
+  return console.log(combineArr)
+}
+
+//j
+const numArr1 = [2,4,6,8]
+const numArr2 = [1,2,3,4]
+
+const addArrays = (arr1, arr2) => {
+  const combineArr = new Array ([
+    (arr1[0] + arr2[0]), 
+    (arr1[1] + arr2[1]),
+    (arr1[2] + arr2[2]),
+    (arr1[3] + arr2[3])
+  ])
+  return console.log(combineArr)
+}
+addArrays(numArr1, numArr2)
+
+//k
+const numArr3 = [0, 3, -3, -4,1]
+
+let positiveNum = 0
+const countPositive = (arr) => {
+  for (let i=0 ; i <=arr.length-1 ; i++){
+    if (arr[i] > 0){
+       positiveNum ++
+    }
+  }
+  console.log(positiveNum)
+}
+countPositive(numArr3)
+
+//l & m
+const Arr = [5,3,0,-5]
+
+let Obj = {
+    max : null,
+    min : null
+}
+
+function maxMin(arr, ob){
+ ob.min = arr[0]
+ ob.max = arr[0]
+  for (let i= 1; i< arr.length; i++){
+    if (arr[i] < ob.min){
+      ob.min = arr[i];
+    }
+    else if (arr[i] > ob.max){
+      ob.max = arr[i]
+    }
+  }
+  return ob
+}
+
+console.log(typeof (maxMin(Arr, Obj)))
+
+const myAnswer = JSON.stringify(maxMin(Arr,Obj))
+document.querySelector('.answer').innerHTML = myAnswer
+
+//n
+
+const fruits = ['apple', 'apple', 'strawberry', 'grapes', 'strawberry']
+
+*/
+
+//v 
+
+
+for (let i=0 ; i<=100 ; i++){
+let arr=[]
+
+  if (i % 3 === 0 && i % 5 === 0 ){
+    console.log('FizzBuzz')
+  }
+  else if (i % 5 === 0){
+    console.log('Buzz')
+  }
+  else if (i % 3 === 0){
+    console.log('Fizz')
+  }
+  else{
+    console.log(i)
+  }
+}
+
+
+//8
+/*
+const product ={
+  name : 'basketball',
+  price : 2095,
+  'delivery-time' : '3days'
+}
+
+const {name, price} = product
+const priceInc = price + 0.500
+console.log(name, price)
+console.log (name, priceInc, product['delivery-time'])
+
+const product1 = {
+  name: 'brand X',
+  price: 20
+}
+
+const product2 = {
+  name: 'brand Y',
+  price: 25
+}
+
+
+
+const comparePrice = (productX, productY) => {
+     return productX.price > productY.price ? 
+     product1 : product2
+}
+
+console.log(comparePrice(product1, product2))
+
+
+const product3 = {
+  name: 'brand X',
+  price: 20
+}
+
+const product4 = {
+  name: 'brand Y',
+  price: 25
+}
+
+const isSameProduct = (productX, productY) => {
+  return productX.name === productY.name ?
+  true : false
+}
+
+console.log(isSameProduct(product3, product4))
+
+console.log('Good Morning'.toLowerCase())
+console.log('test'.repeat(2))
+*/
+// const greet = (name = 'there') =>{
+//   console.log (`hello ${name}`)
+// }
+// greet()
+
+// const randomNum = Math.random()
+
+// const guess = 'Tails'
+
+// const result = randomNum > 0.5 ? 'Heads' : 'Tails'
+// const check = guess === result ? 'You win' : 'You Lose'
+
+// const hour = 7;
+// const name = 'AI'
+
+// let time = ''
+// if (hour > 6 && hour < 12) {
+//   time = `Good afternoon ${name}!`
+// }
+// else if (hour > 13 && hour < 17){
+//   time =  `Good afternoon ${name}!`
+// }
+// else{
+//   time = `Good night ${name}!`
+// }
+
+// const age = 65;
+// const holiday = false;
+
+// if ((age <= 6 || age >= 65) && !holiday) {
+//   console.log('Discount')
+// }
+// else{
+//   console.log('No Discount')
+// }
+
+</script>
