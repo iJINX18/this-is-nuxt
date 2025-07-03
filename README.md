@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Nuxt Minimal Starter
 
 Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
@@ -73,3 +74,7 @@ bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+=======
+# PraticeCoding
+Practice Coding 
+>>>>>>> 3d99dc6a23d111d9dcedfd59d6577b6a13a695ec
