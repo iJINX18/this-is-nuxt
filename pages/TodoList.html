@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TodoList</title>
+</head>
+
+  <h1>My To-do List</h1>
+
+<div class="input-grid">
+  <input type="text" placeholder="What to do?" id ='js-input' class='name-input' required/>
+  <input type="date" id ='js-date' class='date-input' required/>
+  <button onclick="
+  addTask()" class="add-btn">Add</button>
+</div>
+
+  <div class="js-pContainer todo-grid"></div>
+<body>
+
+</body>
+</html>
+<script>
+
+let list = loadStorage()
+todoRender()
+
+function loadStorage(){
+  const storedList = localStorage.getItem('todo-list')
+  return storedList ? JSON.parse(storedList) : []
+}
+
+function saveStorage(){
+  localStorage.setItem('todo-list', JSON.stringify(list))
+}
+
+function todoRender(){
+  let todoHTML = ''
+  for (let i=0; i<list.length ; i++){
+    const toDo = list[i]
+    const {task,due} = toDo
+    const html = `
+      <div>${task}</div>
+      <div>${due} </div>
+      <button onclick ="
+        list.splice(${i}, 1)
+        saveStorage()
+        todoRender()"
+        class = "delete-btn">
+        Remove
+      </button>`
+    todoHTML += html
+  }
+  document.querySelector('.js-pContainer')
+  .innerHTML = todoHTML
+}
+
+function addTask(){
+  const input = document.getElementById ('js-input')
+  const task = input.value
+  const date = document.getElementById ('js-date')
+  const due = date.value
+
+  if (task && due){
+    list.push({
+    task,
+    due
+    })
+    input.value = ''
+    date.value = ''
+    saveStorage()
+    todoRender()
+  }
+
+  todoRender()
+}
+
+</script>
+<style>
+ body{
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+ }
+
+.todo-grid,
+.input-grid{
+  display: grid;
+  grid-template-columns: 200px 150px 100px;
+  column-gap: 5px;
+  row-gap: 5px;
+  align-items: left
+}
+.input-grid{
+  margin-bottom: 5px;
+  align-items: stretch;
+}
+
+.todo-grid div{
+  padding: 5px;
+  text-align: center
+}
+.name-input,
+.date-input
+{
+ font-size: 15px;
+ padding: 6px
+}
+
+.add-btn{
+  background-color: green;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.delete-btn{
+  background-color: red;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 6px
+}
+</style>
