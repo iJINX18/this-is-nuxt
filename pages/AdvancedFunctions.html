@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title class="js-title">
+    App
+  </title>
+</head>
+<body>
+<button 
+onclick = "changeBTN()"
+class="js-content">
+  Start
+</button>
+<button 
+onclick = "addBTN()"
+>Add to Cart
+</button>
+<p id="js-info"></p>
+
+<button onclick="addMSG()">Add</button>
+<button onclick="rmvMSG()">Remove</button>
+</body>
+</html>
+<script>
+
+//12a
+  const add = function(){
+    console.log(2+3)
+  }
+
+  add();
+  add();
+
+//12b
+  function runTwice(fun){
+    fun();
+    fun();
+  }
+
+  runTwice(function(){
+    console.log('12b')
+  })
+
+  runTwice(add)
+
+//12c&d
+  
+let clicked = false
+
+function changeBTN(){
+
+  setTimeout(
+    function(){
+      document.querySelector('.js-content').innerText = 'Finished!'
+    }, 1000)
+
+  if (!clicked){
+      document.querySelector('.js-content').innerText = 'Loading...'
+  }
+}
+
+//12e
+// function addBTN(){
+//   setTimeout(
+//     function(){
+//       document.querySelector('#js-info')
+//       .innerText = ''
+//     }, 2000)
+
+//    document.querySelector('#js-info')
+//    .innerText = 'Added'
+  
+// }
+
+//challenge exercise 12f
+let timeoutId;
+
+function addBTN() {
+    document.querySelector('#js-info')
+    .innerText = 'Added';
+
+    clearTimeout(timeoutId);
+
+    timeoutId = setTimeout(
+    function(){
+        document.querySelector('#js-info').innerText = '';
+      }, 2000
+    );
+     
+}
+//12g,h,i
+// setInterval(function(){
+//   document.querySelector('.js-title')
+//   .innerText = '(2) New Messages'
+// },1000)
+
+// setInterval(function(){
+//   document.querySelector('.js-title')
+//   .innerText = 'App'
+// },2000)
+let messages = 2
+let swap = false
+
+function addMSG(){
+  messages += 1
+}
+
+function rmvMSG(){
+  if (messages > 0){
+    messages -= 1
+  }
+}
+
+let stopID = setInterval(function(){
+
+  if (messages === 0){
+  // clearInterval(stopID)
+  document.querySelector('.js-title')
+  .innerText = `App`;
+  return;
+  }
+
+  document.querySelector('.js-title')
+  .innerText = swap ? `(${messages}) New Messages` : `App`;
+  swap = !swap
+},1000) 
+
+
+
+
+</script>
+<style>
+
+</style>

@@ -3,19 +3,17 @@
 <head>
   <title>TodoList</title>
 </head>
-
+<body>
   <h1>My To-do List</h1>
 
-<div class="input-grid">
+<form class="input-grid">
   <input type="text" placeholder="What to do?" id ='js-input' class='name-input' required/>
   <input type="date" id ='js-date' class='date-input' required/>
-  <button onclick="
+  <button type="submit" onclick="
   addTask()" class="add-btn">Add</button>
-</div>
+</form>
 
   <div class="js-pContainer todo-grid"></div>
-<body>
-
 </body>
 </html>
 <script>
@@ -34,6 +32,22 @@ function saveStorage(){
 
 function todoRender(){
   let todoHTML = ''
+
+  list.forEach(function(toDo, index){
+    const {task,due} = toDo
+    const html = `
+      <div>${task}</div>
+      <div>${due} </div>
+      <button onclick ="
+        list.splice(${index}, 1)
+        saveStorage()
+        todoRender()"
+        class = "delete-btn">
+        Remove
+      </button>`
+    todoHTML += html
+  });
+/*
   for (let i=0; i<list.length ; i++){
     const toDo = list[i]
     const {task,due} = toDo
@@ -49,6 +63,7 @@ function todoRender(){
       </button>`
     todoHTML += html
   }
+  */
   document.querySelector('.js-pContainer')
   .innerHTML = todoHTML
 }
