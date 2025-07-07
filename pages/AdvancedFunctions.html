@@ -7,8 +7,7 @@
 </head>
 <body>
 <button 
-onclick = "changeBTN()"
-class="js-content">
+class="js-content js-change-btn">
   Start
 </button>
 <button 
@@ -44,6 +43,11 @@ onclick = "addBTN()"
   runTwice(add)
 
 //12c&d
+
+document.querySelector('.js-change-btn')
+.addEventListener('click', () => {
+  changeBTN()
+})
   
 let clicked = false
 

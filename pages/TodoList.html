@@ -7,18 +7,24 @@
   <h1>My To-do List</h1>
 
 <form class="input-grid">
-  <input type="text" placeholder="What to do?" id ='js-input' class='name-input' required/>
-  <input type="date" id ='js-date' class='date-input' required/>
-  <button type="submit" onclick="
-  addTask()" class="add-btn">Add</button>
+  <input
+    type="text"
+    placeholder="What to do?"
+    id ='js-input' 
+    class='name-input' required/>
+  <input 
+    type="date" 
+    id ='js-date' 
+    class='date-input' required/>
+  <button type="submit" class="add-btn add-task">Add</button>
 </form>
 
-  <div class="js-pContainer todo-grid"></div>
+<div class="js-pContainer todo-grid"></div>
 </body>
 </html>
 <script>
 
-let list = loadStorage()
+let list = loadStorage() 
 todoRender()
 
 function loadStorage(){
@@ -30,23 +36,21 @@ function saveStorage(){
   localStorage.setItem('todo-list', JSON.stringify(list))
 }
 
+
 function todoRender(){
   let todoHTML = ''
-
-  list.forEach(function(toDo, index){
-    const {task,due} = toDo
+  list.forEach((toDo, index)=>{
+    const {task,due} = toDo;
     const html = `
       <div>${task}</div>
       <div>${due} </div>
-      <button onclick ="
-        list.splice(${index}, 1)
-        saveStorage()
-        todoRender()"
-        class = "delete-btn">
+      <button 
+        class = "delete-btn js-rmv-btn ">
         Remove
-      </button>`
+      </button>`;
     todoHTML += html
   });
+
 /*
   for (let i=0; i<list.length ; i++){
     const toDo = list[i]
@@ -66,9 +70,21 @@ function todoRender(){
   */
   document.querySelector('.js-pContainer')
   .innerHTML = todoHTML
-}
 
-function addTask(){
+  document.querySelectorAll('.js-rmv-btn')
+  .forEach((deleteBTN, index) => {
+  deleteBTN.addEventListener('click', () => {
+      list.splice(index, 1)
+      saveStorage()
+      todoRender()
+  })
+})
+}
+document.querySelector('.add-task')
+.addEventListener('click', () => {
+  addTask()
+})
+const addTask = () => {
   const input = document.getElementById ('js-input')
   const task = input.value
   const date = document.getElementById ('js-date')
